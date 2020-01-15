@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Credentials } from '../../credentials';
+import { SignUpDetails, SignInDetails } from '../../formclasses';
 
 @Component({
   selector: 'app-signform',
@@ -14,17 +14,29 @@ export class SignformComponent implements OnInit {
   ngOnInit() {
   }
 
-  user: Credentials = new Credentials;
-  displayForm = false;
+  newUser: SignUpDetails = new SignUpDetails();
+  oldUser: SignInDetails = new SignInDetails();
+
+  displaySignUp = false;
+  displaySignIn = false;
 
   pickOccupation(val) {
-    this.user.occupation = val;
-    this.displayForm = true;
-    console.log(this.user)
+    this.newUser.occupation = val;
+    this.displaySignUp = true;
+  }
+
+  switch() {
+    this.displaySignIn = true;
+    this.displaySignUp = false;
+  }
+
+  switchBack() {
+    this.displaySignIn = false;
+    this.displaySignUp = false;
   }
 
   logIt() {
-    console.log(this.user)
+    console.log(this.newUser, this.oldUser)
   }
   
 

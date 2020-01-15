@@ -1,36 +1,53 @@
-<form (ngSubmit)="logIt()" *ngIf="displayForm">
+<form (ngSubmit)="logIt()" *ngIf="displaySignUp && !displaySignIn">
     <h3>Sign Up</h3>
    <div>
     <label>USERNAME: </label>
-        <input type="text" name="username" [(ngModel)]="user.username">
+        <input type="text" name="username" [(ngModel)]="newUser.username">
    </div>
     <div>
         <label>PASSWORD: </label>
-        <input type="password" name="password" [(ngModel)]="user.passowrd">
+        <input type="password" name="password" [(ngModel)]="newUser.password">
         </div>
     <div>
         <label>EMAIL: </label>
-        <input type="email" name="email" [(ngModel)]="user.email">
+        <input type="email" name="email" [(ngModel)]="newUser.email">
     </div>
     <div>
         <label>FIRSTNAME: </label>
-        <input type="text" name="firstname" [(ngModel)]="user.firstname">
+        <input type="text" name="firstname" [(ngModel)]="newUser.firstname">
     </div>
     <div>
         <label>LASTNAME: </label>
-        <input type="text" name="lastname" [(ngModel)]="user.lastname">
+        <input type="text" name="lastname" [(ngModel)]="newUser.lastname">
     </div>
     <div>
         <label>BIRTH DATE: </label>
-            <input type="date" name="birthdate" [(ngModel)]="user.birthdate">
+            <input type="date" name="birthdate" [(ngModel)]="newUser.birthdate">
     </div>
-    <input type="submit" value="SignUp">
+    <input type="submit" value="SIGN UP">
+
+    <a class="weak" (click)="switch()">Sign In instead</a>
 </form>
 
-<form *ngIf="!displayForm">
+<form *ngIf="!displaySignUp && !displaySignIn">
     <div class="picker">
         <h2>ARE YOU A</h2>
     <button class="btn-std" (click)="pickOccupation('student')">Student</button>
     <button class="btn-tch" (click)="pickOccupation('teacher')">Teacher</button>
     </div>
+</form>
+
+<form *ngIf="!displaySignUp && displaySignIn" (ngSubmit)="logIt()">
+    <h3>SIGN IN</h3>
+    <div>
+        <label>USERNAME: </label>
+        <input type="text" [(ngModel)]="oldUser.username" name="username">
+    </div>
+    <div>
+        <label>PASSWORD: </label>
+        <input type="password" [(ngModel)]="oldUser.password" name="password">
+    </div>
+    <input type="submit" value="SIGN IN">
+    <a class="weak" (click)="switchBack()">Sign Up instead</a>
+
 </form>
