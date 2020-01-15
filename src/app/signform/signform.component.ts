@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Credentials } from '../../credentials';
 
 @Component({
   selector: 'app-signform',
@@ -11,5 +12,12 @@ export class SignformComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  user: Credentials = new Credentials;
+
+  pickOccupation(val) {
+    this.user.occupation = val;
+  }
+  
 
 }
