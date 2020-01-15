@@ -8,15 +8,23 @@ import { Credentials } from '../../credentials';
 })
 export class SignformComponent implements OnInit {
 
-  constructor() { }
-
+  constructor() {
+    
+  }
   ngOnInit() {
   }
 
   user: Credentials = new Credentials;
+  displayForm = false;
 
   pickOccupation(val) {
     this.user.occupation = val;
+    this.displayForm = true;
+    console.log(this.user)
+  }
+
+  logIt() {
+    console.log(this.user)
   }
   
 

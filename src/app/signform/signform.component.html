@@ -1,28 +1,36 @@
-<form>
+<form (ngSubmit)="logIt()" *ngIf="displayForm">
     <h3>Sign Up</h3>
    <div>
     <label>USERNAME: </label>
-        <input type="text">
+        <input type="text" name="username" [(ngModel)]="user.username">
    </div>
     <div>
         <label>PASSWORD: </label>
-        <input type="password">
+        <input type="password" name="password" [(ngModel)]="user.passowrd">
         </div>
     <div>
         <label>EMAIL: </label>
-        <input type="email">
+        <input type="email" name="email" [(ngModel)]="user.email">
     </div>
     <div>
         <label>FIRSTNAME: </label>
-        <input type="text">
+        <input type="text" name="firstname" [(ngModel)]="user.firstname">
     </div>
     <div>
         <label>LASTNAME: </label>
-        <input type="text">
+        <input type="text" name="lastname" [(ngModel)]="user.lastname">
     </div>
     <div>
         <label>BIRTH DATE: </label>
-            <input type="date">
+            <input type="date" name="birthdate" [(ngModel)]="user.birthdate">
     </div>
     <input type="submit" value="SignUp">
+</form>
+
+<form *ngIf="!displayForm">
+    <div class="picker">
+        <h2>ARE YOU A</h2>
+    <button class="btn-std" (click)="pickOccupation('student')">Student</button>
+    <button class="btn-tch" (click)="pickOccupation('teacher')">Teacher</button>
+    </div>
 </form>
