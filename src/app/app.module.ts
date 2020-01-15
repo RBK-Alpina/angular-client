@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { SignformComponent } from './signform/signform.component';
-import { ClassroomListComponent } from './classroom-list/classroom-list.component';
+import { ClassroomListComponent } from './minuatureClasseroom/minuatureClasseroom';
 import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
