@@ -1,0 +1,22 @@
+
+<div class="row">
+  <div class="col-12">
+    <div data-toggle="collapse" [attr.data-target]="'#f' + index" 
+    aria-expanded="false" 
+    class="card text-white bg-info my-3 mx-auto" style="max-width: 40rem;">
+      <div class="card-header">
+        <p>{{post.name}} <span style="float: right;">{{post.date}}</span></p>
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{post.text}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="collapse card mb-3 mx-auto" style="max-width: 40rem;" [id]="'f' + index">
+      <div class="card card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      </div>
+    </div>
+  </div>
+</div>

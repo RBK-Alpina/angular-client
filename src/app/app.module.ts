@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { SignformComponent } from './signform/signform.component';
+import { ClassRoomComponent } from './class-room/class-room.component';
+import { PostComponent } from './post/post.component';
 
 import { SearchComponent } from './search/search.component';
 
@@ -22,8 +24,8 @@ import { SearchService } from './services/search.service';
     HeaderComponent,
     MainComponent,
     SignformComponent,
-
-
+    ClassRoomComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
