@@ -1,0 +1,82 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    border: 1px solid white;
+    color: grey;
+    margin-top: -20%;
+    font-weight: 500;
+    width: 100%;
+    background-color: white;
+    border: 1px solid grey;
+
+}
+
+form > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+form > div > * {
+    margin: 0px 30px 10px 30px;
+}
+
+form > input[type="submit"] {
+    background-color: unset;
+    border: 0.5px solid grey;
+    color: grey;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    padding: 15px;
+    width: 29%;
+
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+    border: 1px solid grey;
+    border-radius: 6px;
+    height: 2em;
+    width: 15em;
+    text-align: center;
+}
+
+.picker {
+    flex-direction: column;
+}
+
+.picker > button {
+    border: 1px solid grey;
+    padding: 13px 100px 13px 100px;
+    border-radius: 3px;
+}
+
+.picker > h2 {
+    color: rgb(51, 51, 51);
+}
+
+.btn-std {
+    background-color: rgb(48, 190, 124);
+    transition: all 400ms ease-in-out;
+}
+
+.btn-std:hover {
+    background-color: rgb(96, 221, 162);
+    transform: scale(1.2)
+}
+
+
+
+.btn-tch {
+    background-color: rgb(60, 182, 166);
+    transition: all 400ms ease-in-out;
+}
+
+.btn-tch:hover {
+    background-color: rgb(111, 212, 199);
+    transform: scale(1.2)
+}

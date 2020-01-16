@@ -1,16 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { SignformComponent } from './signform/signform.component';
 import { ClassRoomComponent } from './class-room/class-room.component';
-import { AppRoutingModule } from './app-routing.module';
 import { PostComponent } from './post/post.component';
+
+import { SearchComponent } from './search/search.component';
+
+import { ClassroomlistComponent } from './classroomList/classroomlist.component';
+
+import { SearchService } from './services/search.service';
 
 @NgModule({
   declarations: [
+    ClassroomlistComponent,
+    SearchComponent,
     AppComponent,
     HeaderComponent,
     MainComponent,
@@ -20,9 +29,11 @@ import { PostComponent } from './post/post.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
