@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './minuatureClasseroom.html',
   styleUrls: ['./minuatureClasseroom.css']
 })
-export class ClassroomListComponent implements OnInit {
+export class MinuatureComponent implements OnInit {
   Classroomlist = classnames
 
   @Input() classroom={}
