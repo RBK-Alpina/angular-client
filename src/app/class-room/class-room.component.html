@@ -14,9 +14,8 @@
         <textarea class="form-control" aria-label="With textarea"></textarea>
       </div>
       <div class="container-fluid bg-light">
-        <app-post></app-post>
-        <app-post></app-post>
-        <app-post></app-post>
+        <app-post [post]="post" [index]="i" *ngFor="let post of posts;let i = index"></app-post>
+
       </div>
     </div>
   </div>
