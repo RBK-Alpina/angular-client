@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SignUpDetails, SignInDetails } from '../../formclasses';
+import { AuthService } from '../auth.service';
+import { timingSafeEqual } from 'crypto';
+
 
 @Component({
   selector: 'app-signform',
@@ -8,10 +11,13 @@ import { SignUpDetails, SignInDetails } from '../../formclasses';
 })
 export class SignformComponent implements OnInit {
 
-  constructor() {
+  constructor(private authService: AuthService) {
     
   }
   ngOnInit() {
+    this.authService.myVar.subscribe(data=>{
+      console.log(data)
+    })
   }
 
   newUser: SignUpDetails = new SignUpDetails();
@@ -36,7 +42,7 @@ export class SignformComponent implements OnInit {
   }
 
   logIt() {
-    console.log(this.newUser, this.oldUser)
+    this.authService.signUp(this.newUser)
   }
   
 
