@@ -10,6 +10,7 @@ export class SearchComponent implements OnInit {
     isFormSent: boolean = false;
     searchText: string = '';
     findedClassesroom = [];
+
     constructor(private SearchService: SearchService) {
     }
 

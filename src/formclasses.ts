@@ -3,10 +3,11 @@ export class SignUpDetails {
     password: string;
     email: string;
     birthdate: Date;
-    occupation: string;
+    role: string;
 }
 
 export class SignInDetails {
     username: string;
     password: string;
+    role: string
 }
