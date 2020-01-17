@@ -17,8 +17,9 @@ export class ClassroomlistComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this.classesroom = data
-        // console.log(this.classesroom)
+
+        this.classesroom = data['default']
+        console.log(data['default'])
         // this.searchFor = this.SearchService.getSearch()
     }
 }

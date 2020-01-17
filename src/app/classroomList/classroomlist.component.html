@@ -1,12 +1,13 @@
-<div class="card text-center mw-100">
+<div class="card text-center mw-100 ">
     <div class="card-header text-left">
         Result Search for:{{searchFor}}
     </div>
 
-    <div class="card-body" *ngFor="let item of classesroom">
-        <h1>component classroom </h1>
+    <div class="d-flex flex-row card-body" *ngFor="let item of classesroom">
+        <div>
+            <minuature-classroom [classroom]='item'></minuature-classroom>
+        </div>
     </div>
-
     <div class="card-footer text-muted">
 
         <nav aria-label="Page navigation example">

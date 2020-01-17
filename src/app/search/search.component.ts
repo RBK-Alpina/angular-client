@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from "../services/search.service"
-import *  as  data from '../data/data.json';
+import *  as  dataSearch from '../data/dataSearch.json';
 @Component({
     selector: 'search-component',
     templateUrl: './search.component.html',
@@ -14,9 +14,9 @@ export class SearchComponent implements OnInit {
     }
 
     onClickSearch(datav) {
-        console.log(data['default'])
+        console.log(dataSearch['default'])
         this.searchText = datav.searchText
-        this.findedClassesroom = data['default']
+        this.findedClassesroom = dataSearch['default']
         this.isFormSent = true;
 
 

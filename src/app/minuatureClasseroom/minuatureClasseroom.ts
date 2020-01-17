@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 // import {  Classlist } from '../models/classes'
- import { classnames } from    '../classesexample'
+import { classnames } from '../classesexample'
 
 @Component({
   selector: 'minuature-classroom',
@@ -8,13 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./minuatureClasseroom.css']
 })
 export class MinuatureComponent implements OnInit {
-  Classroomlist = classnames
+  // Classroomlist = classnames
 
-  @Input() classroom={}
+  @Input() classroom = {}
   constructor() { }
 
   ngOnInit() {
-    console.log(this.Classroomlist)
+    // console.log(this.Classroomlist)
   }
 
 }

@@ -9,7 +9,7 @@ import { MainComponent } from './main/main.component';
 import { SignformComponent } from './signform/signform.component';
 import { ClassRoomComponent } from './class-room/class-room.component';
 import { PostComponent } from './post/post.component';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SearchComponent } from './search/search.component';
 
 import { ClassroomlistComponent } from './classroomList/classroomlist.component';
@@ -31,7 +31,8 @@ import { SearchService } from './services/search.service';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MDBBootstrapModule.forRoot()
   ],
 
   providers: [SearchService],
