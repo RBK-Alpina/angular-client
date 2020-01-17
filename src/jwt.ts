@@ -1,4 +1,10 @@
 export class AuthDetails {
-    username: string;
-    token: string;
+    username: string = null;
+    role: string = "guest";
+    token: string = null;
+}
+
+export class AuthResponse {
+    status: string;
+    details: AuthDetails;
 }

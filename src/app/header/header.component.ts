@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthDetails } from 'src/jwt';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
+    this.authService.isAuthed.subscribe(msg=>{
+      this.auth = msg;
+    })
   }
 
+
+
+  auth: boolean;
 }
