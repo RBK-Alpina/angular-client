@@ -9,7 +9,7 @@ import { SearchService } from "../services/search.service"
 export class SearchComponent implements OnInit {
 
     searchText: string = '';
-    findedClassesroom = []
+    findedClassesroom = [] 
     constructor(private SearchService: SearchService) {
     }
 

@@ -15,6 +15,9 @@ import { SearchComponent } from './search/search.component';
 import { ClassroomlistComponent } from './classroomList/classroomlist.component';
 
 import { SearchService } from './services/search.service';
+import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorsProviders } from './intercepters';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -31,10 +34,15 @@ import { SearchService } from './services/search.service';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
 
-  providers: [SearchService],
+  providers: [
+    SearchService,
+    AuthService,
+    httpInterceptorsProviders
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
