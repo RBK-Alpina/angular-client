@@ -15,7 +15,9 @@ h1 {
     color: #333;
     font-family: Cambria, Georgia;
   }
- 
+  mdb-card{
+      width: 18rem
+  }
   /* everywhere else */
   * {
     font-family: Arial, Helvetica, sans-serif;
