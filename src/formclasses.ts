@@ -1,5 +1,7 @@
 export class SignUpDetails {
     username: string;
+    firstName: string;
+    lastLame: string;
     password: string;
     email: string;
     birthdate: Date;

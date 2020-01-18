@@ -1,143 +1,84 @@
-<!-- <form (ngSubmit)="logIt()" *ngIf="displaySignUp && !displaySignIn">
-    <h3>Sign Up</h3>
-    <div>
-        <label>USERNAME: </label>
-        <input type="text" name="username" [(ngModel)]="newUser.username">
-    </div>
-    <div>
-        <label>PASSWORD: </label>
-        <input type="password" name="password" [(ngModel)]="newUser.password">
-    </div>
-    <div>
-        <label>EMAIL: </label>
-        <input type="email" name="email" [(ngModel)]="newUser.email">
-    </div>
-    <div>
-        <label>FIRSTNAME: </label>
-        <input type="text" name="firstname" [(ngModel)]="newUser.firstName">
-    </div>
-    <div>
-        <label>LASTNAME: </label>
-        <input type="text" name="lastname" [(ngModel)]="newUser.lastName">
-    </div>
-    <div>
-        <label>BIRTH DATE: </label>
-        <input type="date" name="birthdate" [(ngModel)]="newUser.birthdate">
-    </div>
-    <input type="submit" value="SIGN UP">
 
-    <a class="weak" (click)="switch()">Sign In instead</a>
-</form>
-
-<form *ngIf="!displaySignUp && !displaySignIn">
-    <div class="picker">
-        <h2>ARE YOU A</h2>
-        <button class="btn-std" (click)="pickOccupation('student')">Student</button>
-        <button class="btn-tch" (click)="pickOccupation('teacher')">Teacher</button>
-    </div>
-</form>
-
-<form *ngIf="!displaySignUp && displaySignIn" (ngSubmit)="signIn()">
-    <h3>SIGN IN</h3>
-    <div>
-        <label>USERNAME: </label>
-        <input type="text" [(ngModel)]="oldUser.username" name="username">
-    </div>
-    <div>
-        <label>PASSWORD: </label>
-        <input type="password" [(ngModel)]="oldUser.password" name="password">
-    </div>
-    <input type="submit" value="SIGN IN">
-    <a class="weak" (click)="switchBack()">Sign Up instead</a>
-
-</form> -->
 
 <!-- Default form login ------------------------------------------------------------------ -->
-<form class="text-center border border-light p-5" *ngIf="!displaySignUp && displaySignIn">
+<form class="text-center border border-light p-5" *ngIf="!displaySignUp && displaySignIn" #signInForm="ngForm"
+(ngSubmit)="signIn(signInForm)"
+>
     <p class="h4 mb-4">Sign in</p>
 
     <!-- Email -->
-    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+    <input type="text" id="defaultLoginFormUsername" class="form-control mb-4" placeholder="Username"
+    ngModel name="username"
+    >
 
     <!-- Password -->
-    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password"
+    ngModel name="password"
+    >
 
-    <div class="d-flex justify-content-around">
-        <div>
-            <!-- Remember me -->
-            <mdb-checkbox [default]="true">Remember me</mdb-checkbox>
-        </div>
-        <div>
-            <!-- Forgot password -->
-            <a href="">Forgot password?</a>
-        </div>
-    </div>
+    
 
     <!-- Sign in button -->
     <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign in</button>
+    <button mdbBtn color="info" block="true" class="my-4" type="submit" (click)="switchBack()">Sign Up Instead</button>
 
-    <!-- Register -->
-    <p>Not a member?
-        <a href="">Register</a>
-    </p>
+    
 
     <!-- Social login -->
-    <p>or sign in with:</p>
-
-    <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="facebook"></mdb-icon>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="twitter"></mdb-icon>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="linkedin"></mdb-icon>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="github"></mdb-icon>
-    </a>
-
+    
 </form>
 <!-- Default form login -->
 
 <!-- Default form register ----------------------------------------------------------------->
-<form class="text-center border border-light p-5"  *ngIf="displaySignUp && !displaySignIn">
+<form class="text-center border border-light p-5" (ngSubmit)="signUp(signUpForm)" #signUpForm="ngForm"  *ngIf="displaySignUp && !displaySignIn">
 
     <p class="h4 mb-4">Sign up</p>
+
+
+    <input type="text" id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="Username"
+    ngModel name="username"
+    >
 
     <div class="form-row mb-4">
         <div class="col">
             <!-- First name -->
-            <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+            <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name"
+            ngModel name="firstName"
+            >
         </div>
         <div class="col">
             <!-- Last name -->
-            <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+            <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name"
+            ngModel name="lastName"
+            >
         </div>
     </div>
 
     <!-- E-mail -->
-    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail"
+    ngModel name="email"
+    >
 
     <!-- Password -->
     <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password"
-        aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        aria-describedby="defaultRegisterFormPasswordHelpBlock"
+        ngModel name="password"
+        >
     <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
         At least 8 characters and 1 digit
     </small>
 
-    <!-- Phone number -->
-    <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number"
-        aria-describedby="defaultRegisterFormPhoneHelpBlock">
-    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-        Optional - for two-step authentication
-    </small>
+    <input type="date" id="defaultRegisterPhonePassword" class="form-control" 
+    ngModel name="birthdate"    
+    aria-describedby="defaultRegisterFormPhoneHelpBlock">
+    
 
-    <!-- Newsletter -->
    
 
     <!-- Sign up button -->
-    <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign in</button>
+    <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign Up</button>
+    <button mdbBtn color="info" block="true" class="my-4" type="submit" (click)="switch()">Sign In Instead</button>
+
 
     <!-- Social register -->
   
@@ -145,9 +86,7 @@
     <hr>
 
     <!-- Terms of service -->
-    <p>By clicking
-        <em>Sign up</em> you agree to our
-        <a href="" target="_blank">terms of service</a></p>
+    
 
 </form>
 <!-- Default form register -->
@@ -157,4 +96,6 @@
     <p class="h4 mb-4">Are you a student or a Teacher?</p>
     <button mdbBtn color="info" block="true" class="my-4" type="submit" (click)="pickOccupation('student')">Student</button>
     <button mdbBtn color="info" block="true" class="my-4" type="submit"(click)="pickOccupation('teacher')">Teacher</button>
+    <button mdbBtn color="info" block="true" class="my-4" type="submit" (click)="switch()">Sign In Instead</button>
+
 </form>
