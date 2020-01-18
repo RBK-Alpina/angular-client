@@ -10,10 +10,5 @@ export class SearchService {
 
   constructor(private http: HttpClient) { }
   url = "http://127.0.0.1:5000/";
-  getAllClasseromms() {
-    this.http.get(this.url + 'classrooms').subscribe(response => {
-      console.log(response)
-    })
 
-  }
 }

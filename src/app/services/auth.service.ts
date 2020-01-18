@@ -27,7 +27,7 @@ export class AuthService {
 
   signIn(info: SignInDetails) {
     this.http.post<AuthResponse>(this.url + 'signIn', info).subscribe(response => {
-      console.log(response)
+      //  console.log(response)
       if (response.status === "success") {
         this.isAuthed.next(true);
         this.userData = response.details;
@@ -45,12 +45,11 @@ export class AuthService {
     }
   }
 
-
   userData: AuthDetails = new AuthDetails;
   isAuthed: Subject<boolean> = new Subject();
-  
+
   checkAuth() {
-    if(this.userData.role !== "guest")
+    if (this.userData.role !== "guest")
       return true;
     return false;
   }

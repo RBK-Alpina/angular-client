@@ -9,16 +9,17 @@ import *  as  data from '../data/data.json';
 })
 export class ClassroomlistComponent implements OnInit {
     @Input() searchFor = '';
-    @Input() classesroom = [];
+    @Input() classesroom;
 
     constructor(private ClassroomService: ClassroomService) {
+        // 
     }
-
     ngOnInit() {
-        // this.SearchService.getAllClasseromms()
-        // var test = this.SearchService.getAllClasseromms()
-        // this.classesroom = test['data']
-        console.log(this.ClassroomService.getAll())
-        // this.searchFor = this.SearchService.getSearch()
+        this.ClassroomService.getAll();
+        this.ClassroomService.classroomsData.subscribe(data => {
+            this.classesroom = data['data'];
+            console.log(data)
+        })
+
     }
 }

@@ -9,13 +9,14 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ClassroomService {
   classrooms;
+
   constructor(private http: HttpClient) { }
   url = "http://127.0.0.1:5000/";
-
   getAll() {
-    return this.http.get<ClassroomData>((this.url + 'classrooms'), { observe: 'response' })
+    this.http.get(this.url + 'classrooms')
       .subscribe(response => {
-        console.log(response)
+        this.classroomsData.next(response)
+        console.log('***********')
       });
   }
 
@@ -28,5 +29,5 @@ export class ClassroomService {
   enroll() {
 
   }
-
+  classroomsData: Subject<object> = new Subject();
 }
