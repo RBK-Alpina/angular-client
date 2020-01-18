@@ -47,4 +47,10 @@ export class AuthService {
 
   userData: AuthDetails = new AuthDetails;
   isAuthed: Subject<boolean> = new Subject();
+  
+  checkAuth() {
+    if(this.userData.role !== "guest")
+      return true;
+    return false;
+  }
 }

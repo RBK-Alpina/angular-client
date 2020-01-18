@@ -1,8 +1,15 @@
-<form class="form-inline w-100 p-3" #search="ngForm" (ngSubmit)="onClickSearch(search.value)">
-    <input class="form-control mr-sm-2" name="searchText" type="search" placeholder="Search " aria-label="Search"
-        ngModel>
-    <button type="submit" href='#' routerLink='/classrooms' class="btn btn-outline-success my-2 my-sm-0">Search</button>
-</form>
-<classroomlist-component [classesroom]="findedClassesroom" [searchFor]="searchText"></classroomlist-component>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
 
-<!-- <component-to-display-when-form-sent *ngIf="isFormSent"></component-to-display-when-form-sent></div> -->
+        
+        <p class="lead">Find a Classroom</p>
+        
+        <div class="md-form">
+            <input mdbInput type="text" class="form-control" placeholder="Classroom">
+            <a name="" id="" class="btn btn-primary" href="#" role="button">Search</a>
+        </div>
+    </div>
+</div>
+
+<classroomlist-component>
+
