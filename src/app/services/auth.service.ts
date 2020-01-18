@@ -12,13 +12,13 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  url = "http://127.0.0.1:5000/auth";
+  url = "http://127.0.0.1:5000/";
 
 
   signUp(info: SignUpDetails) {
-    console.log(info)
-    this.http.post<AuthResponse>(this.url+'/signUp', info).subscribe(response=>{
-      if(response.status === "success"){
+    //console.log(info)
+    this.http.post<AuthResponse>(this.url + 'signUp', info).subscribe(response => {
+      if (response.status === "success") {
         this.isAuthed.next(true);
         this.userData = response.details;
         localStorage.setItem("token", response.details.token);
@@ -27,10 +27,13 @@ export class AuthService {
   }
 
   signIn(info: SignInDetails) {
-    this.http.post<AuthResponse>(this.url+'/signIn', info).subscribe(response=>{
-      if(response.status === "success"){
+    console.log('user', info)
+    this.http.post<AuthResponse>(this.url + 'signIn', info).subscribe(response => {
+      console.log(response)
+      if (response.status === "success") {
         this.isAuthed.next(true);
         this.userData = response.details;
+
       };
     })
   }
