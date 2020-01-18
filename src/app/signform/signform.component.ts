@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SignUpDetails, SignInDetails } from '../../formclasses';
+import { AuthService } from '../services/auth.service';
+
 
 @Component({
   selector: 'app-signform',
@@ -8,10 +10,11 @@ import { SignUpDetails, SignInDetails } from '../../formclasses';
 })
 export class SignformComponent implements OnInit {
 
-  constructor() {
+  constructor(private authService: AuthService) {
     
   }
   ngOnInit() {
+
   }
 
   newUser: SignUpDetails = new SignUpDetails();
@@ -21,7 +24,8 @@ export class SignformComponent implements OnInit {
   displaySignIn = false;
 
   pickOccupation(val) {
-    this.newUser.occupation = val;
+    this.newUser.role = val;
+    this.oldUser.role = val;
     this.displaySignUp = true;
   }
 
@@ -36,7 +40,7 @@ export class SignformComponent implements OnInit {
   }
 
   logIt() {
-    console.log(this.newUser, this.oldUser)
+    this.authService.signUp(this.newUser)
   }
   
 
