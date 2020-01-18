@@ -5,7 +5,7 @@
     <links>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item waves-light" mdbWavesEffect>
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/" *ngIf="!auth">Home</a>
             </li>
             <li class="nav-item waves-light" mdbWavesEffect>
                 <a class="nav-link" href="/classrooms">Classrooms</a>

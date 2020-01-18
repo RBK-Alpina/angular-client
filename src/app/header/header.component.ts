@@ -19,5 +19,5 @@ export class HeaderComponent implements OnInit {
 
 
 
-  auth: boolean;
+  auth: boolean = false;
 }
