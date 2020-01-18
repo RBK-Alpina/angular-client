@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SearchService } from "../services/search.service"
+import { ClassroomService } from "../services/classroom.service"
 import *  as  data from '../data/data.json';
 
 @Component({
@@ -11,15 +11,14 @@ export class ClassroomlistComponent implements OnInit {
     @Input() searchFor = '';
     @Input() classesroom = [];
 
-    // set data(data) {
-    // }
-    constructor(private SearchService: SearchService) {
+    constructor(private ClassroomService: ClassroomService) {
     }
 
     ngOnInit() {
-
-        this.classesroom = data['default']
-        console.log(data['default'])
+        // this.SearchService.getAllClasseromms()
+        // var test = this.SearchService.getAllClasseromms()
+        // this.classesroom = test['data']
+        console.log(this.ClassroomService.getAll())
         // this.searchFor = this.SearchService.getSearch()
     }
 }
