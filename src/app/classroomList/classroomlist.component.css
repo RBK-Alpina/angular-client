@@ -1,6 +1,14 @@
+.root{
+    background-color: transparent;
+    height: 100vh;
 
+}
 .classroomList{
     display: flex;
     direction: row;
+
+}
+.test{
+    /* background-color: blue; */
     
 }
