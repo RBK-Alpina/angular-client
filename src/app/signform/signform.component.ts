@@ -11,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 export class SignformComponent implements OnInit {
 
   constructor(private authService: AuthService) {
-    
+
   }
   ngOnInit() {
 
@@ -39,9 +39,12 @@ export class SignformComponent implements OnInit {
     this.displaySignUp = false;
   }
 
-  logIt() {
+  signUp() {
     this.authService.signUp(this.newUser)
   }
-  
+  signIn() {
+    this.authService.signIn(this.oldUser)
+  }
+
 
 }
