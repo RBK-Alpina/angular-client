@@ -1,4 +1,4 @@
-<form (ngSubmit)="logIt()" *ngIf="displaySignUp && !displaySignIn">
+<form (ngSubmit)="signUp()" *ngIf="displaySignUp && !displaySignIn">
     <h3>Sign Up</h3>
     <div>
         <label>USERNAME: </label>
@@ -37,7 +37,7 @@
     </div>
 </form>
 
-<form *ngIf="!displaySignUp && displaySignIn" (ngSubmit)="logIt()">
+<form *ngIf="!displaySignUp && displaySignIn" (ngSubmit)="signIn()">
     <h3>SIGN IN</h3>
     <div>
         <label>USERNAME: </label>
