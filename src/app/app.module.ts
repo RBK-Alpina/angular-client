@@ -15,6 +15,7 @@ import { SearchComponent } from './search/search.component';
 import { ClassroomlistComponent } from './classroomList/classroomlist.component';
 
 import { SearchService } from './services/search.service';
+import { AddClassRoomComponent } from './add-class-room/add-class-room.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SearchService } from './services/search.service';
     SignformComponent,
     ClassRoomComponent,
     PostComponent,
-    MinuatureComponent
+    MinuatureComponent,
+    AddClassRoomComponent
   ],
   imports: [
     BrowserModule,
