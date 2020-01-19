@@ -1,26 +1,18 @@
-<div class="test">
-
-    <div class="card text-center root">
-        <div class="card-header text-left">
-            Result Search for:{{searchFor}}
-        </div>
-        <div class="d-flex flex-row ">
-            <div class=" card-body" *ngFor="let item of classesroom">
-
-                <minuature-classroom [classroom]='item'></minuature-classroom>
-
-            </div>
-        </div>
-        <div class="card-footer text-muted">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
+<div class="card text-center ">
+    <div class="card-header text-left">
+        Result Search for:{{searchFor}}
+    </div>
+    <div class="d-flex flex-wrap">
+        <div class=" card-body" *ngFor="let item of pageOfClassroom">
+            <minuature-classroom [classroom]='item'></minuature-classroom>
         </div>
 
     </div>
+
+    <div class="card-footer text-muted">
+        <nav aria-label="Page navigation example">
+            <jw-pagination [items]="classesroom" (changePage)="onChangePage($event)"></jw-pagination>
+        </nav>
+    </div>
+
 </div>

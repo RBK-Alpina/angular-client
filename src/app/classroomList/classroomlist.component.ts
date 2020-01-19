@@ -9,17 +9,23 @@ import *  as  data from '../data/data.json';
 })
 export class ClassroomlistComponent implements OnInit {
     @Input() searchFor = '';
+    pageOfClassroom: Array<any>;
     @Input() classesroom;
 
     constructor(private ClassroomService: ClassroomService) {
-        // 
     }
+
+
     ngOnInit() {
         this.ClassroomService.getAll();
         this.ClassroomService.classroomsData.subscribe(data => {
             this.classesroom = data['data'];
             console.log(data)
         })
+    }
 
+    onChangePage(pageOfClassroom: Array<any>) {
+        // update current page of items
+        this.pageOfClassroom = pageOfClassroom;
     }
 }

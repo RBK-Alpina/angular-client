@@ -15,5 +15,17 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  isTeach() {
+    return localStorage.getItem("role") === "teacher";
+  }
+  isLogged() {
+    const role = localStorage.getItem("role");
+    return role === "teacher" || role === "student";
+  }
+
+  logout() {
+    this.authService.signOut();
+  }
+
   auth: boolean = false;
 }
