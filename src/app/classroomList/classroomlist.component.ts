@@ -11,15 +11,19 @@ export class ClassroomlistComponent implements OnInit {
     @Input() searchFor = '';
     pageOfClassroom: Array<any>;
     @Input() classesroom;
+    test;
 
     constructor(private ClassroomService: ClassroomService) {
     }
 
 
-    ngOnInit() { 
+    ngOnInit() {
+        this.ClassroomService.getAll();
         this.ClassroomService.classroomsData.subscribe(data => {
-            this.classesroom = data;
-            console.log(data)
+            this.classesroom = data['data'];
+            this.test = data['status'];
+            console.log(this.test)
+
         })
         this.ClassroomService.getAll();
     }
