@@ -12,17 +12,20 @@ export class AuthGuard implements CanActivate {
 
   }
 
-  isAuthed: boolean;
+  
   
   
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.checkLogin()
+    let url = state.url;
+    return this.checkLogin(url)
   }
 
-  checkLogin(): boolean {
+  checkLogin(url: string): boolean {
+    console.log(url)
+    if(url==="/addclassroom") return localStorage.getItem('role')==="teacher";
     if(this.authService.checkAuth()) return true;
     this.router.navigate(['/'])
     return false;

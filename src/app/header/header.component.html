@@ -4,13 +4,20 @@
     </mdb-navbar-brand>
     <links>
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item waves-light" mdbWavesEffect>
-                <a class="nav-link" href="/" *ngIf="!auth">Home</a>
+            <li class="nav-item waves-light" mdbWavesEffect *ngIf="!isLogged()">
+                <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item waves-light" mdbWavesEffect>
                 <a class="nav-link" href="/classrooms">Classrooms</a>
             </li>
+            <li class="nav-item waves-light" mdbWavesEffect *ngIf="isTeach()">
+                <a class="nav-link" href="/addclassroom">add Classroom</a>
+            </li>
         </ul>
         
+        
+            <a class="btn btn-default btn-sm" *ngIf="isLogged()" (click)="logout()">logout</a>
+       
+         
     </links>
 </mdb-navbar>
