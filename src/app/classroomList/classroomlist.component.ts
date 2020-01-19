@@ -16,12 +16,12 @@ export class ClassroomlistComponent implements OnInit {
     }
 
 
-    ngOnInit() {
-        this.ClassroomService.getAll();
+    ngOnInit() { 
         this.ClassroomService.classroomsData.subscribe(data => {
-            this.classesroom = data['data'];
+            this.classesroom = data;
             console.log(data)
         })
+        this.ClassroomService.getAll();
     }
 
     onChangePage(pageOfClassroom: Array<any>) {
