@@ -24,6 +24,7 @@ export class AuthService {
         localStorage.setItem("token", response.details.token);
         localStorage.setItem("user", response.details.username);
         localStorage.setItem("role", response.details.role);
+        localStorage.setItem("id", response.details.id);
         this.router.navigate(['/classrooms'])
       }
     })
@@ -37,6 +38,7 @@ export class AuthService {
         localStorage.setItem("token", response.details.token);
         localStorage.setItem("user", response.details.username);
         localStorage.setItem("role", response.details.role);
+        localStorage.setItem("id", response.details.id);
         this.router.navigate(['/classrooms'])
       };
     })
@@ -47,6 +49,7 @@ export class AuthService {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     localStorage.removeItem("role");
+    localStorage.removeItem("id");
     this.router.navigate(['/'])
   }
 
