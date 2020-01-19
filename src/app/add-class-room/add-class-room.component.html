@@ -1,22 +1,20 @@
 <!-- Default form login -->
-<form class="text-center border border-light p-5">
+<form class="text-center border border-light p-5" #addClass="ngForm" (ngSubmit)="onClickSubmit(addClass.value)">
 
-    <p class="h4 mb-4">Add a New Classroom</p>
-  
- 
-    <input type="text"  class="form-control mb-4" placeholder="classroom name">
-  
- 
-    <input type="text"  class="form-control mb-4" placeholder="classroom category">
-    <input type="text"  class="form-control mb-4" placeholder="classroom description">
-  
-    
-  
-    <!-- Sign in button -->
-    <button mdbBtn color="info" block="true" class="my-4" type="submit">Add new Classroom</button>
-  
-   
-   
-  
-  </form>
-  <!-- Default form login -->
+  <p class=" h4 mb-4">Add a New Classroom</p>
+
+
+  <input type="text" name="name" class="form-control mb-4" placeholder="classroom name" ngModel>
+  <input type="text" name="categories" class="form-control mb-4" placeholder="classroom category" ngModel>
+  <input type="text" name="description" class="form-control mb-4" placeholder="classroom description" ngModel>
+
+
+
+  <!-- Sign in button -->
+  <button mdbBtn color="info" block="true" class="my-4" type="submit">Add new Classroom</button>
+
+
+
+
+</form>
+<!-- Default form login -->

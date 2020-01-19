@@ -15,10 +15,21 @@ export class ClassroomService {
 
 
   getAll() {
-    this.http.get(this.url + 'classrooms')
-      .subscribe(response => {
-        this.classroomsData.next(response)
-      });
+    // this.http.get(this.url + 'classrooms')
+    //   .subscribe(response => {
+    //     this.classroomsData.next(response)
+    //   });
+    this.classroomsData.next([
+      {name: "test`1"},
+      {name: "test`1"},
+      {name: "test`11"},
+      {name: "test`2"},
+      {name: "test`1"},
+      {name: "test`4"},
+      {name: "test`1"},
+      {name: "test`3"},
+      {name: "test`22"},
+    ])
   }
 
   getClaasroomByUser() {
@@ -29,10 +40,13 @@ export class ClassroomService {
   }
 
   getData() {
-
   }
-  create() {
 
+  create(data) {
+    data.teacher = '5e22e47e63acac079099042c';//==> localStorage.getItem('id')
+    this.http.post(this.url + 'addClassroom', data).subscribe(response => {
+      console.log(response)
+    })
   }
   enroll() {
 

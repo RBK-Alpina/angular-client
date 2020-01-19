@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClassroomService } from "../services/classroom.service"
 
 @Component({
   selector: 'app-add-class-room',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddClassRoomComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private ClassroomService: ClassroomService) { }
+  onClickSubmit(data) {
+    this.ClassroomService.create(data)
+  }
   ngOnInit() {
+
   }
 
 }
