@@ -1,0 +1,18 @@
+<div class="card text-center ">
+    <div class="card-header text-left">
+        Result Search for:{{searchFor}}
+    </div>
+    <div class="d-flex flex-wrap">
+        <div class=" card-body" *ngFor="let item of pageOfClassroom">
+            <minuature-classroom [classroom]='item'></minuature-classroom>
+        </div>
+
+    </div>
+
+    <div class="card-footer text-muted">
+        <nav aria-label="Page navigation example">
+            <jw-pagination [items]="classesroom" (changePage)="onChangePage($event)"></jw-pagination>
+        </nav>
+    </div>
+
+</div>

@@ -12,11 +12,19 @@ export class ClassroomService {
 
   constructor(private http: HttpClient) { }
   url = "http://127.0.0.1:5000/";
+
+
   getAll() {
     this.http.get(this.url + 'classrooms')
       .subscribe(response => {
         this.classroomsData.next(response)
-        console.log('***********')
+      });
+  }
+
+  getClaasroomByUser() {
+    this.http.get(this.url + 'classroomsByUser')
+      .subscribe(response => {
+        this.classroomsDataUser.next(response)
       });
   }
 
@@ -30,4 +38,6 @@ export class ClassroomService {
 
   }
   classroomsData: Subject<object> = new Subject();
+  classroomsDataUser: Subject<object> = new Subject();
+
 }

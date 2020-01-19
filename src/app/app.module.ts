@@ -20,6 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorsProviders } from './intercepters';
 import { AuthService } from './services/auth.service';
 
+import { JwPaginationComponent } from 'jw-angular-pagination';
+import { MyClassroomComponent } from './my-classroom/my-classroom.component';
+
 @NgModule({
   declarations: [
     ClassroomlistComponent,
@@ -31,6 +34,8 @@ import { AuthService } from './services/auth.service';
     ClassRoomComponent,
     PostComponent,
     MinuatureComponent,
+    JwPaginationComponent,
+    MyClassroomComponent,
     AddClassRoomComponent
   ],
   imports: [
@@ -46,7 +51,7 @@ import { AuthService } from './services/auth.service';
     SearchService,
     AuthService,
     httpInterceptorsProviders
-    ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

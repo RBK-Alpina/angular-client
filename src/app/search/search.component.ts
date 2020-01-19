@@ -7,23 +7,20 @@ import *  as  dataSearch from '../data/dataSearch.json';
     styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-    isFormSent: boolean = false;
-    searchText: string = '';
+    searchText: string = ''
+    searchFor: string = '';
     findedClassesroom = [];
 
     constructor(private SearchService: SearchService) {
     }
 
-    onClickSearch(datav) {
+    onClickSearch() {
+        console.log('datav', this.searchText)
         console.log(dataSearch['default'])
-        this.searchText = datav.searchText
-        this.findedClassesroom = dataSearch['default']
-        this.isFormSent = true;
-
-
+        this.searchText = this.searchFor
+        this.findedClassesroom = dataSearch['default']//update from database
         // get the data from database and update findedClassesroom[]
     }
     ngOnInit() {
-
     }
 }
