@@ -1,33 +1,16 @@
-<!-- <div>
-    <a>Home</a>
-    <a href='#' routerLink='/classrooms'>Classrooms</a>
-    <span>
-        <a>Sign in</a>
-        <a>Sign up</a>
-    </span>
-</div> -->
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue ie-nav fixed-top" [containerInside]="false">
+    <mdb-navbar-brand>
+        <a class="logo navbar-brand" href="#"><strong>EduWare</strong></a>
+    </mdb-navbar-brand>
+    <links>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link" href="/" *ngIf="!auth">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href='#' routerLink='/classrooms'>Classrooms</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+            <li class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link" href="/classrooms">Classrooms</a>
             </li>
         </ul>
-    </div>
-</nav>
-<router-outlet></router-outlet>
+        
+    </links>
+</mdb-navbar>

@@ -9,13 +9,16 @@ import { MainComponent } from './main/main.component';
 import { SignformComponent } from './signform/signform.component';
 import { ClassRoomComponent } from './class-room/class-room.component';
 import { PostComponent } from './post/post.component';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SearchComponent } from './search/search.component';
 
 import { ClassroomlistComponent } from './classroomList/classroomlist.component';
 
 import { SearchService } from './services/search.service';
 import { AddClassRoomComponent } from './add-class-room/add-class-room.component';
+import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorsProviders } from './intercepters';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -33,10 +36,17 @@ import { AddClassRoomComponent } from './add-class-room/add-class-room.component
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MDBBootstrapModule.forRoot(),
+    HttpClientModule
+
   ],
 
-  providers: [SearchService],
+  providers: [
+    SearchService,
+    AuthService,
+    httpInterceptorsProviders
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SearchService } from "../services/search.service"
+import { ClassroomService } from "../services/classroom.service"
+import *  as  data from '../data/data.json';
 
 @Component({
     selector: 'classroomlist-component',
@@ -7,16 +8,18 @@ import { SearchService } from "../services/search.service"
     styleUrls: ['./classroomlist.component.css']
 })
 export class ClassroomlistComponent implements OnInit {
-
     @Input() searchFor = '';
-    @Input() classesroom = [];
+    @Input() classesroom;
 
-    // set data(data) {
-    // }
-    constructor(private SearchService: SearchService) {
+    constructor(private ClassroomService: ClassroomService) {
+        // 
     }
-
     ngOnInit() {
-        // this.searchFor = this.SearchService.getSearch()
+        this.ClassroomService.getAll();
+        this.ClassroomService.classroomsData.subscribe(data => {
+            this.classesroom = data['data'];
+            console.log(data)
+        })
+
     }
 }
