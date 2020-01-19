@@ -21,8 +21,10 @@ export class AuthService {
       console.log(response)
       if (response.status === "success") {
         this.isAuthed.next(true);
-        this.userData = response.details;
         localStorage.setItem("token", response.details.token);
+        localStorage.setItem("user", response.details.username);
+        localStorage.setItem("role", response.details.role);
+        localStorage.setItem("id", response.details.id);
         this.router.navigate(['/classrooms'])
       }
     })
@@ -33,8 +35,10 @@ export class AuthService {
       //  console.log(response)
       if (response.status === "success") {
         this.isAuthed.next(true);
-        this.userData = response.details;
         localStorage.setItem("token", response.details.token);
+        localStorage.setItem("user", response.details.username);
+        localStorage.setItem("role", response.details.role);
+        localStorage.setItem("id", response.details.id);
         this.router.navigate(['/classrooms'])
       };
     })
@@ -42,11 +46,10 @@ export class AuthService {
 
   signOut() {
     this.isAuthed.next(false);
-    this.userData = {
-      role: "guest",
-      username: null,
-      token: null,
-    }
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("role");
+    localStorage.removeItem("id");
     this.router.navigate(['/'])
   }
 
@@ -54,8 +57,10 @@ export class AuthService {
   isAuthed: Subject<boolean> = new Subject();
 
   checkAuth() {
-    if (this.userData.role !== "guest")
+    if (localStorage.getItem("token"))
       return true;
     return false;
   }
+
+  
 }

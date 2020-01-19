@@ -15,6 +15,7 @@ import { SearchComponent } from './search/search.component';
 import { ClassroomlistComponent } from './classroomList/classroomlist.component';
 
 import { SearchService } from './services/search.service';
+import { AddClassRoomComponent } from './add-class-room/add-class-room.component';
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorsProviders } from './intercepters';
 import { AuthService } from './services/auth.service';
@@ -34,7 +35,8 @@ import { MyClassroomComponent } from './my-classroom/my-classroom.component';
     PostComponent,
     MinuatureComponent,
     JwPaginationComponent,
-    MyClassroomComponent
+    MyClassroomComponent,
+    AddClassRoomComponent
   ],
   imports: [
     BrowserModule,
