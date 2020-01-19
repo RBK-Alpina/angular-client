@@ -1,23 +1,38 @@
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue ie-nav fixed-top" [containerInside]="false">
-    <mdb-navbar-brand>
-        <a class="logo navbar-brand" href="#"><strong>EduWare</strong></a>
-    </mdb-navbar-brand>
-    <links>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item waves-light" mdbWavesEffect *ngIf="!isLogged()">
-                <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item waves-light" mdbWavesEffect>
-                <a class="nav-link" href="/classrooms">Classrooms</a>
-            </li>
-            <li class="nav-item waves-light" mdbWavesEffect *ngIf="isTeach()">
-                <a class="nav-link" href="/addclassroom">add Classroom</a>
-            </li>
-        </ul>
-        
-        
-            <a class="btn btn-default btn-sm" *ngIf="isLogged()" (click)="logout()">logout</a>
-       
-         
-    </links>
+<mdb-navbar
+  SideClass="navbar navbar-expand-lg navbar-dark blue ie-nav fixed-top"
+  [containerInside]="false"
+>
+  <mdb-navbar-brand>
+    <a class="logo navbar-brand" href="#"><strong>EduWare</strong></a>
+  </mdb-navbar-brand>
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <li
+        class="nav-item waves-light"
+        mdbWavesEffect
+        *ngIf="!authService.checkAuth()"
+      >
+        <a class="nav-link" href="#" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a class="nav-link" href="#" routerLink="/classrooms">Classrooms</a>
+      </li>
+      <li
+        class="nav-item waves-light"
+        mdbWavesEffect
+        *ngIf="authService.isTeach()"
+      >
+        <a class="nav-link" href="#" routerLink="/addclassroom"
+          >add Classroom</a
+        >
+      </li>
+    </ul>
+
+    <a
+      class="btn btn-default btn-sm"
+      *ngIf="authService.checkAuth()"
+      (click)="logout()"
+      >logout</a
+    >
+  </links>
 </mdb-navbar>
