@@ -17,14 +17,15 @@ export class ClassroomlistComponent implements OnInit {
     }
 
 
-
     ngOnInit() {
         this.ClassroomService.getAll();
         this.ClassroomService.classroomsData.subscribe(data => {
             this.classesroom = data['data'];
             this.test = data['status'];
             console.log(this.test)
+
         })
+        this.ClassroomService.getAll();
     }
 
     onChangePage(pageOfClassroom: Array<any>) {

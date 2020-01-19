@@ -17,4 +17,7 @@ export class MinuatureComponent implements OnInit {
     // console.log(this.Classroomlist)
   }
 
+  isStudent() {
+    return localStorage.getItem("role")==="student"
+  }
 }
