@@ -20,6 +20,7 @@ import { httpInterceptorsProviders } from './intercepters';
 import { AuthService } from './services/auth.service';
 
 import { JwPaginationComponent } from 'jw-angular-pagination';
+import { MyClassroomComponent } from './my-classroom/my-classroom.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
     ClassRoomComponent,
     PostComponent,
     MinuatureComponent,
-    JwPaginationComponent
+    JwPaginationComponent,
+    MyClassroomComponent
   ],
   imports: [
     BrowserModule,
