@@ -14,14 +14,15 @@
       </div>
       <div class="input-group my-4" *ngIf="auth.isTeach()">
         <div class="input-group-prepend">
-          <span class="input-group-text">With textarea</span>
+          <button (click)="handlePost()" mdbBtn color="primary">post</button>
         </div>
-        <textarea class="form-control" aria-label="With textarea"></textarea>
+        <textarea [(ngModel)]="text" class="form-control" aria-label="With textarea"></textarea>
       </div>
       <div class="container-fluid bg-light">
         <app-post
           [post]="post"
           [index]="i"
+          [teacher]="teacher"
           *ngFor="let post of posts; let i = index"
         ></app-post>
       </div>
