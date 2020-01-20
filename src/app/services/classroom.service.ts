@@ -33,7 +33,12 @@ export class ClassroomService {
     // });
   }
 
-
+  // getSearchedClassroom(search) {
+  //   this.http.post(this.url + "classroomSearch", { search: search }).subscribe(response => {
+  //     console.log('#############################s', response)
+  //     this.classroomsData.next(response);
+  //   });
+  // }
   getClaasroomByUser() {
     this.http.get(this.url + "classroomsByUser").subscribe(response => {
       this.classroomsDataUser.next(response);
