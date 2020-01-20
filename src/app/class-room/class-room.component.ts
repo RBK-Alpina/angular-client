@@ -35,22 +35,36 @@ export class ClassRoomComponent implements OnInit {
   name: string;
   description: string;
   category: string;
-  post: any[];
+  posts: any[];
+  text: string;
+  classRoomId: string;
+  teacher: string;
   constructor(
     private activeRoute: ActivatedRoute,
     private http: HttpClient,
     public auth: AuthService
   ) {}
 
+  handlePost() {
+    this.http.post(url + "/classroom/post/" + this.classRoomId, {
+      teacher: localStorage.getItem('id'),
+      text: this.text,
+      date: new Date()
+    }).subscribe(res => {
+      this.posts.push(res)
+    })
+  }
   ngOnInit() {
     this.activeRoute.params.subscribe(link => {
       // console.log(link.id);
-      this.http.get(url + "/classroom/" + link.id).subscribe(res => {
+      this.http.get(url + "/classroom/" + link.id).subscribe((res: any) => {
         console.log(res);
         this.name = res["data"]["name"];
         this.description = res["data"]["description"];
         this.category = res["data"]["categories"];
-        this.post = res["data"]["posts"];
+        this.posts = res["data"]["posts"];
+        this.classRoomId = link.id;
+        this.teacher = res.data.teacher.firstName + ' ' + res.data.teacher.lastName;
       });
     });
   }
