@@ -18,19 +18,6 @@ export class ClassroomService {
       console.log(response)
       this.classroomsData.next(response);
     });
-    // this.classroomsData.next({
-    //   data: [
-    //     { name: "test`1" },
-    //     { name: "test`1" },
-    //     { name: "test`11" },
-    //     { name: "test`2" },
-    //     { name: "test`1" },
-    //     { name: "test`4" },
-    //     { name: "test`1" },
-    //     { name: "test`3" },
-    //     { name: "test`22" }
-    //   ]
-    // });
   }
 
 
