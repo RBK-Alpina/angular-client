@@ -5,24 +5,28 @@
       <h5>{{classroom.name}}</h5>
     </mdb-card-title>
     <mdb-card-text>{{classroom.description}}</mdb-card-text>
-    <button
-      mdbBtn
-      color="primary"
-      [routerLink]="'/classroom/'+classroom._id"
-      *ngIf="auth.isStudent()"
-    >
+
+    <button mdbBtn color="success" [routerLink]="'/classroom/'+classroom._id" *ngIf="classroom.enrolled">
+      View
+    </button>
+
+    <button mdbBtn color="primary" *ngIf="auth.isStudent() && !classroom.enrolled"
+      [routerLink]="'/classroom/'+classroom._id" (click)="enrollClick()">
       Enroll
     </button>
+
     <button mdbBtn color="default" routerLink="/" *ngIf="!auth.checkAuth()">
       login first
     </button>
-    <button
-      mdbBtn
-      color="primary"
-      [routerLink]="'/classroom/'+classroom._id"
-      *ngIf="myClassRoom()"
-    >
+
+    <button mdbBtn color="primary" [routerLink]="'/classroom/'+classroom._id" *ngIf="myClassRoom()">
       View Class
     </button>
+
+
+
+
   </mdb-card-body>
 </mdb-card>
+
+<!-- -->

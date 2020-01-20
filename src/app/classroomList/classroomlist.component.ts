@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { ClassroomService } from "../services/classroom.service";
+import { AuthService } from "../services/auth.service";
 import * as data from "../data/data.json";
 
 @Component({
@@ -11,22 +12,37 @@ export class ClassroomlistComponent implements OnInit {
   @Input() searchFor = "";
   pageOfClassroom: Array<any>;
   @Input() classesroom;
-  test;
 
-  constructor(private ClassroomService: ClassroomService) {}
+  constructor(private ClassroomService: ClassroomService, public auth: AuthService) { }
 
   ngOnInit() {
-    this.ClassroomService.getAll();
-    this.ClassroomService.classroomsData.subscribe(data => {
+    //console.log('localStorage.getItem(id)', localStorage.getItem('id'))
+    this.ClassroomService.getAll(localStorage.getItem('id'));
+
+    this.ClassroomService.classroomsData.subscribe(async (data) => {
+      // if (this.auth.isTeach) {
+
+      //   this.classesroom = await data["data"].map((element: any) => {
+      //     console.log(element)
+      //     if (element.teacher === localStorage.getItem('id')) return element
+      //   });
+      // }
+      // else {
+      // this.classesroom = await data["data"];
+      // }
       this.classesroom = data["data"];
-      this.test = data["status"];
-      console.log(this.test);
     });
-    this.ClassroomService.getAll();
+
+  }
+
+  myClassRoom(classr) {
+    if (this.auth.isTeach) {
+      return classr["teacher"] === localStorage.getItem("id");
+    }
+    return true
   }
 
   onChangePage(pageOfClassroom: Array<any>) {
-    // update current page of items
     this.pageOfClassroom = pageOfClassroom;
   }
 }
