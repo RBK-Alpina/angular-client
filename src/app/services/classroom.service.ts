@@ -10,12 +10,12 @@ import { Observable, Subject } from "rxjs";
 export class ClassroomService {
   classrooms;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   url = "http://127.0.0.1:5000/";
 
-  getAll() {
-    this.http.get(this.url + "classrooms").subscribe(response => {
-      console.log(response);
+  getAll(idStudent) {
+    this.http.post(this.url + "classrooms", { idStudent: idStudent }).subscribe(response => {
+      console.log(response)
       this.classroomsData.next(response);
     });
     // this.classroomsData.next({
@@ -33,13 +33,14 @@ export class ClassroomService {
     // });
   }
 
+
   getClaasroomByUser() {
     this.http.get(this.url + "classroomsByUser").subscribe(response => {
       this.classroomsDataUser.next(response);
     });
   }
 
-  getData() {}
+  getData() { }
 
   create(data) {
     data.teacher = localStorage.getItem("id");
@@ -47,7 +48,12 @@ export class ClassroomService {
       console.log(response);
     });
   }
-  enroll() {}
+  enroll(request) {
+
+    this.http.post(this.url + "enroll", request).subscribe(response => {
+      console.log(response);
+    });
+  }
   classroomsData: Subject<object> = new Subject();
   classroomsDataUser: Subject<object> = new Subject();
 }
