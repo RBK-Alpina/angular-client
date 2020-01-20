@@ -17,7 +17,7 @@
       <div *ngFor="let comment of post.comments" class="card card-body my-3" style="background-color: aquamarine;">
         
         <div class="card-header">
-          <p>{{comment.student}} <span style="float: right;">{{post.date}}</span></p>
+          <p>{{comment.student.firstName}}  {{comment.student.lastName}} <span style="float: right;">{{post.date}}</span></p>
         </div>
         <div class="card-body">
           <p class="card-text">{{comment.text}}</p>
