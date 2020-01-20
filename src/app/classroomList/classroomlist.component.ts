@@ -20,7 +20,6 @@ export class ClassroomlistComponent implements OnInit {
     this.ClassroomService.getAll(localStorage.getItem('id'));
 
     this.ClassroomService.classroomsData.subscribe(async (data) => {
-
       if (this.auth.isTeach()) {
         this.classesroom = data["data"].filter((element) => {
           return element['teacher'] === localStorage.getItem('id')
